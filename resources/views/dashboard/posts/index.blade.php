@@ -5,33 +5,41 @@
         <h1 class="h2">My Posts</h1>
     </div>
 
-    <div class="table-responsive medium">
-        <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create New Post</a>
-        <table class="table table-striped table-sm">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($posts as $post)
+    @if (session()->has('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+
+        <div class="table-responsive medium">
+            <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create New Post</a>
+            <table class="table table-striped table-sm">
+                <thead>
                     <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $post->title }}</td>
-                        <td>{{ $post->category->name }}</td>
-                        <td>
-                            <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><i class="bi bi-eye"></i></a>
-                            <a href="" class="badge bg-warning"><i class="bi bi-box-arrow-in-down-left"></i></i></a>
-                            <a href="" class="badge bg-danger"><i class="bi bi-x-circle"></i></a>
-                        </td>
-
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Action</th>
                     </tr>
-                @endforeach
+                </thead>
+                <tbody>
+                    @foreach ($posts as $post)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $post->title }}</td>
+                            <td>{{ $post->category->name }}</td>
+                            <td>
+                                <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><i
+                                        class="bi bi-eye"></i></a>
+                                <a href="" class="badge bg-warning"><i
+                                        class="bi bi-box-arrow-in-down-left"></i></i></a>
+                                <a href="" class="badge bg-danger"><i class="bi bi-x-circle"></i></a>
+                            </td>
 
-            </tbody>
-        </table>
-    </div>
-@endsection
+                        </tr>
+                    @endforeach
+
+                </tbody>
+            </table>
+        </div>
+    @endsection
