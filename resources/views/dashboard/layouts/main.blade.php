@@ -18,6 +18,11 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/dashboard.css" rel="stylesheet">
+
+    {{-- Trix Editor --}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
+
 </head>
 
 <body>
@@ -157,7 +162,7 @@
     </script>
 
     <!-- choose one -->
-    <script src="https://unpkg.com/feather-icons"></script>
+    {{-- <script src="https://unpkg.com/feather-icons"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
     <script src="/js/dashboard.js"></script>

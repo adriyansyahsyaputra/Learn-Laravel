@@ -6,6 +6,7 @@
     </div>
 
     <div class="table-responsive medium">
+        <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create New Post</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
@@ -23,7 +24,7 @@
                         <td>{{ $post->category->name }}</td>
                         <td>
                             <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><i class="bi bi-eye"></i></a>
-                            <a href="" class="badge bg-warning"><i class="bi bi-eye"></i></a>
+                            <a href="" class="badge bg-warning"><i class="bi bi-box-arrow-in-down-left"></i></i></a>
                             <a href="" class="badge bg-danger"><i class="bi bi-x-circle"></i></a>
                         </td>
 

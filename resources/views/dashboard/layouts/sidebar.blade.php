@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('dashboard/posts') ? 'active' : '' }} d-flex align-items-center gap-2" href="/dashboard/posts">
+                    <a class="nav-link {{ Request::is('dashboard/posts*') ? 'active' : '' }} d-flex align-items-center gap-2" href="/dashboard/posts">
                         <i class="bi bi-newspaper"></i>
                         My Posts
                     </a>
