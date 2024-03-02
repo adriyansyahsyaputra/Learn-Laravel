@@ -11,35 +11,39 @@
         </div>
     @endif
 
-        <div class="table-responsive medium">
-            <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create New Post</a>
-            <table class="table table-striped table-sm">
-                <thead>
+    <div class="table-responsive medium">
+        <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create New Post</a>
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($posts as $post)
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Category</th>
-                        <th scope="col">Action</th>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $post->title }}</td>
+                        <td>{{ $post->category->name }}</td>
+                        <td>
+                            <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><i
+                                    class="bi bi-eye"></i></a>
+                            <a href="/dashboard/posts/{{ $post->slug }}/edit" class="badge bg-warning"><i class="bi bi-box-arrow-in-down-left"></i></i></a>
+                            <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><i
+                                        class="bi bi-x-circle"></i></button>
+                            </form>
+                        </td>
+
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach ($posts as $post)
-                        <tr>
-                            <td>{{ $loop->iteration }}</td>
-                            <td>{{ $post->title }}</td>
-                            <td>{{ $post->category->name }}</td>
-                            <td>
-                                <a href="/dashboard/posts/{{ $post->slug }}" class="badge bg-info"><i
-                                        class="bi bi-eye"></i></a>
-                                <a href="" class="badge bg-warning"><i
-                                        class="bi bi-box-arrow-in-down-left"></i></i></a>
-                                <a href="" class="badge bg-danger"><i class="bi bi-x-circle"></i></a>
-                            </td>
+                @endforeach
 
-                        </tr>
-                    @endforeach
-
-                </tbody>
-            </table>
-        </div>
-    @endsection
+            </tbody>
+        </table>
+    </div>
+@endsection
