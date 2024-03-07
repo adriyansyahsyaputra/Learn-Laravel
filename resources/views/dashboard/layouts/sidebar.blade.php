@@ -45,5 +45,18 @@
                 </li>
             </ul>
         </div>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Administrator</span>
+        </h6>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : '' }} d-flex align-items-center gap-2" href="/dashboard/categories">
+                    <i class="bi bi-grid"></i>
+                    Post Categories
+                </a>
+            </li>
+        </ul>
+
     </div>
 </div>
